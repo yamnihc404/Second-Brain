@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+body{
+@apply bg-white-200
+}
+
+.twitter-tweet{
+    margin-top: 0;
+    padding-top: 0
+}
