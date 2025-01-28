@@ -137,7 +137,7 @@ app.get('/api/brain/content', auth ,async (req, res) => {
     res.json({message : "User not found"})
   }
    
-  console.log(Content);
+
   res.status(200).json({
     Content
   })

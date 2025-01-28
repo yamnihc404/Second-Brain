@@ -26,7 +26,7 @@ export const Button = (props : ButtonProps) =>{
         md: "py-2 px-4 text-base",
         lg: "py-3 px-6 text-lg"
     }
-    const defaltstyle = "rounded-md Display flex items-center"
+    const defaltstyle = "rounded-md Display flex items-center transition:all duration-300"
 
 
     return (

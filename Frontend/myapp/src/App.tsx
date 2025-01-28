@@ -11,6 +11,7 @@ import { useContent } from './Hooks/Content.tsx';
 import { BACKEND_URL } from './Config/urls.tsx';
 import axios from 'axios';
 
+
 interface ContentType {
   _id: string;
   type: string;
@@ -24,7 +25,10 @@ interface ContentType {
 
 function App(){
   let [open , setOpen] = useState(false);
-  let Contents : ContentType[] = useContent(open);
+  let [trash, setTrash] = useState(false);
+  let Contents : ContentType[] = useContent({open, delete : trash});
+  let [share, setShare] = useState(false);
+  
    
   return (
   <div>
@@ -44,7 +48,7 @@ function App(){
     <div className='flex flex-wrap gap-4'>
     {Array.isArray(Contents) ? (
     Contents.map(({ _id,title, link, type }) => (
-    <Card key={_id} tag ={_id}type={type} link={link} title={title} />
+    <Card key={_id} tag ={_id}type={type} link={link} title={title} remove = {()=>{setTrash(!trash)}}share = {()=>{setShare(!share)}} />
     ))
     ) : (
     <p>Loading content...</p>

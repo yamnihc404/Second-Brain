@@ -2,7 +2,13 @@ import { useEffect,useState } from "react";
 import axios from 'axios';
 import { BACKEND_URL } from "../Config/urls";
 
-export const useContent = (open : boolean) =>{
+
+
+interface Contentprops{
+  open ?: boolean,
+  delete ?: boolean
+}
+export const useContent = (props : Contentprops) =>{
     const [content, setContent] = useState([]);
 
     
@@ -16,7 +22,7 @@ export const useContent = (open : boolean) =>{
           .catch((error) => {
              console.error("Error fetching content:", error);
           });
-    }, [open])
+    }, [props.open, props.delete])
 
 
     return content;
